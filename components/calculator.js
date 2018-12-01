@@ -50,12 +50,50 @@ class Calculator extends Component {
         wRatio = 2
         hRatio = 1
     }
-    this.setState({ wRatio, hRatio })
+    this.setState({ wRatio, hRatio, selectedRatio: parseInt(val) })
   }
   render() {
     return (
       <div>
         <Debug {...this.state} />
+        <div className="inputs">
+          <label>
+            <input
+              type="radio"
+              value="169"
+              checked={this.state.selectedRatio === 169}
+              onChange={e => this.onChangeRatio(e.target.value)}
+            />
+            16x9
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="43"
+              checked={this.state.selectedRatio === 43}
+              onChange={e => this.onChangeRatio(e.target.value)}
+            />
+            4x3
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="219"
+              checked={this.state.selectedRatio === 219}
+              onChange={e => this.onChangeRatio(e.target.value)}
+            />
+            21x9
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="21"
+              checked={this.state.selectedRatio === 21}
+              onChange={e => this.onChangeRatio(e.target.value)}
+            />
+            2x1
+          </label>
+        </div>
         <span>Width</span>
         <input
           type="text"
