@@ -96,13 +96,13 @@ class Calculator extends Component {
         </div>
         <span>Width</span>
         <input
-          type="text"
+          type="number"
           value={this.state.width}
           onChange={e => this.onWidthChange(e.target.value)}
         />
         <span>Height</span>
         <input
-          type="text"
+          type="number"
           value={this.state.height}
           onChange={e => this.onHeightChange(e.target.value)}
         />
