@@ -99,12 +99,14 @@ class Calculator extends Component {
           type="number"
           value={this.state.width}
           onChange={e => this.onWidthChange(e.target.value)}
+          onFocus={e => this.onWidthChange(e.target.value)}
         />
         <span>Height</span>
         <input
           type="number"
           value={this.state.height}
           onChange={e => this.onHeightChange(e.target.value)}
+          onFocus={e => this.onHeightChange(e.target.value)}
         />
       </div>
     )
