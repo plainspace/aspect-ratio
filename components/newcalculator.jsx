@@ -1,10 +1,11 @@
 import React from 'react'
 import BigInput from './BigInput'
+import RatioSwitch from './RatioSwitch'
 
 function getFactors(ratio) {
   let factors = {
     wRatio: 16,
-    hRatio: 9,
+    hRatio: 9
   }
   switch (ratio) {
     case '169':
@@ -53,10 +54,11 @@ class Calculator extends React.Component {
     this.state = {
       value: '',
       lastChanged: 'width',
-      ratio: '43',
+      ratio: '43'
     }
     this.handleWidthChange = this.handleWidthChange.bind(this)
     this.handleHeightChange = this.handleHeightChange.bind(this)
+    this.handleRatioChange = this.handleRatioChange.bind(this)
   }
 
   handleWidthChange(value) {
@@ -65,6 +67,10 @@ class Calculator extends React.Component {
 
   handleHeightChange(value) {
     this.setState({ lastChanged: 'height', value })
+  }
+
+  handleRatioChange(ratio) {
+    this.setState({ ratio })
   }
 
   render() {
@@ -94,6 +100,7 @@ class Calculator extends React.Component {
           label="height"
           onChange={this.handleHeightChange}
         />
+        <RatioSwitch onChange={this.handleRatioChange} />
       </div>
     )
   }
