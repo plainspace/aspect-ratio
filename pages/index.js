@@ -1,11 +1,12 @@
 import React from 'react'
 import Head from '../components/head'
 import Calculator from '../components/calculator'
+import NewCalculator from '../components/newcalculator'
 
 const Home = () => (
   <div>
     <Head title="Home" />
-    <Calculator />
+    <NewCalculator />
 
     <style jsx global>{`
       body {

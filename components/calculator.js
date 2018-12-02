@@ -2,36 +2,50 @@ import React, { Component } from 'react'
 import Debug from './debug'
 
 class Calculator extends Component {
-  state = {
-    wRatio: 16,
-    hRatio: 9,
-    width: '',
-    height: '',
-    selectedRatio: 169
+  constructor(props) {
+    super(props)
+    this.state = {
+      wRatio: 16,
+      hRatio: 9,
+      width: '',
+      height: '',
+      selectedRatio: 169,
+      lastUsedHeight: false
+    }
   }
 
-  onHeightChange = val => {
+  computeWidthFromHeight(height) {
     const { wRatio, hRatio } = this.state
-
-    let newHeight = val
-    let newWidth = Math.round((newHeight / hRatio) * wRatio)
+    let newWidth = Math.round((height / hRatio) * wRatio)
     if (newWidth == 0) {
       newWidth = ''
     }
-    this.setState({ width: newWidth, height: newHeight })
+    return newWidth
   }
 
-  onWidthChange = val => {
+  computeHeightFromWidth(width) {
     const { wRatio, hRatio } = this.state
-    let newWidth = val
-    let newHeight = Math.round((newWidth / wRatio) * hRatio)
+    let newHeight = Math.round((width / wRatio) * hRatio)
     if (newHeight == 0) {
       newHeight = ''
     }
-    this.setState({ width: newWidth, height: newHeight })
+    return newHeight
   }
 
-  onChangeRatio = val => {
+  onHeightChange(val) {
+    console.log('onHeightChange')
+    let newWidth = this.computeWidthFromHeight(val)
+    this.setState({ width: newWidth, height: val })
+  }
+
+  onWidthChange(val) {
+    console.log('onWidthChange')
+    let newHeight = this.computeHeightFromWidth(val)
+    this.setState({ width: val, height: newHeight })
+  }
+
+  onChangeRatio(val) {
+    console.log('onChangeRatio')
     let wRatio, hRatio
     switch (val) {
       case '169':
@@ -50,22 +64,28 @@ class Calculator extends Component {
         wRatio = 2
         hRatio = 1
     }
-    this.setState({ wRatio, hRatio, selectedRatio: parseInt(val) })
+
+    this.setState({
+      wRatio,
+      hRatio,
+      selectedRatio: parseInt(val)
+    })
   }
   render() {
     return (
       <div>
         <Debug {...this.state} />
         <div className="inputs">
-          <label>
-            <input
-              type="radio"
-              value="169"
-              checked={this.state.selectedRatio === 169}
-              onChange={e => this.onChangeRatio(e.target.value)}
-            />
+          <div
+            id="169"
+            checked={this.state.selectedRatio === 169}
+            onClick={e => {
+              this.onChangeRatio(e.target.id)
+              this.onWidthChange(this.state.width)
+            }}
+          >
             16x9
-          </label>
+          </div>
           <label>
             <input
               type="radio"
@@ -99,14 +119,12 @@ class Calculator extends Component {
           type="number"
           value={this.state.width}
           onChange={e => this.onWidthChange(e.target.value)}
-          onFocus={e => this.onWidthChange(e.target.value)}
         />
         <span>Height</span>
         <input
           type="number"
           value={this.state.height}
           onChange={e => this.onHeightChange(e.target.value)}
-          onFocus={e => this.onHeightChange(e.target.value)}
         />
       </div>
     )
