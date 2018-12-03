@@ -13,11 +13,13 @@ class BigInput extends React.Component {
   render() {
     const value = this.props.value
     const label = this.props.label
-    const cx = this.props.className
+    const isActive = this.props.isActive
+    const cx = `input ${isActive ? 'active' : ''}`
     return (
-      <div className="input">
+      <div className={cx}>
         <label className="input__label">{label}</label>
         <input
+          type="number"
           className="input__field"
           value={value}
           placeholder="Value"

@@ -24,7 +24,6 @@ function getFactors(ratio) {
       factors.wRatio = 2
       factors.hRatio = 1
   }
-  console.log(factors)
   return factors
 }
 
@@ -54,7 +53,7 @@ class Calculator extends React.Component {
     this.state = {
       value: '',
       lastChanged: 'width',
-      ratio: '43'
+      ratio: '169'
     }
     this.handleWidthChange = this.handleWidthChange.bind(this)
     this.handleHeightChange = this.handleHeightChange.bind(this)
@@ -94,11 +93,13 @@ class Calculator extends React.Component {
           value={width}
           label="Width"
           onChange={this.handleWidthChange}
+          isActive={lastChanged === 'width'}
         />
         <BigInput
           value={height}
           label="Height"
           onChange={this.handleHeightChange}
+          isActive={lastChanged === 'height'}
         />
         <RatioSwitch
           onChange={this.handleRatioChange}
