@@ -89,7 +89,7 @@ class Calculator extends React.Component {
         : value
 
     return (
-      <div>
+      <div className="container">
         <BigInput
           value={width}
           label="Width"
@@ -97,10 +97,13 @@ class Calculator extends React.Component {
         />
         <BigInput
           value={height}
-          label="height"
+          label="Height"
           onChange={this.handleHeightChange}
         />
-        <RatioSwitch onChange={this.handleRatioChange} />
+        <RatioSwitch
+          onChange={this.handleRatioChange}
+          currentRatio={this.state.ratio}
+        />
       </div>
     )
   }

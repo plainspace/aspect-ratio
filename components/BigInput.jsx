@@ -13,11 +13,17 @@ class BigInput extends React.Component {
   render() {
     const value = this.props.value
     const label = this.props.label
+    const cx = this.props.className
     return (
-      <fieldset>
-        <legend>This is the: {label}</legend>
-        <input value={value} onChange={this.handleChange} />
-      </fieldset>
+      <div className="input">
+        <label className="input__label">{label}</label>
+        <input
+          className="input__field"
+          value={value}
+          placeholder="Value"
+          onChange={this.handleChange}
+        />
+      </div>
     )
   }
 }

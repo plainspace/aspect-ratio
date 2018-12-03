@@ -3,16 +3,12 @@ import Head from '../components/head'
 import Calculator from '../components/calculator'
 import NewCalculator from '../components/newcalculator'
 
+import '../styles/style.scss'
+
 const Home = () => (
   <div>
     <Head title="Home" />
     <NewCalculator />
-
-    <style jsx global>{`
-      body {
-        font-family: system-ui;
-      }
-    `}</style>
   </div>
 )
 

@@ -1,0 +1,81 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 20px;
+  font-family: 'Inter UI', system-ui;
+}
+
+.container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 3fr 2fr;
+}
+
+.input {
+  grid-column: span 2;
+  border: 2px solid black;
+  padding: 48px;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
+
+.input:nth-child(2) {
+  border-left: 1px;
+}
+
+.input__label {
+  display: block;
+}
+
+.input__field {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: none;
+  font-size: 120px;
+  font-weight: 900;
+}
+
+.no-top {
+  border-top: 0;
+}
+.no-bottom {
+  border-bottom: 0;
+}
+.no-right {
+  border-right: 0;
+}
+.no-left {
+  border-left: 0;
+}
+
+.ratio-button {
+  grid-column: span 1;
+  padding: 24px;
+  border: 2px solid black;
+  border-top: 1px;
+  font-weight: 500;
+  font-size: 32px;
+  cursor: pointer;
+  transition: all 250ms;
+}
+
+.ratio-botton:focus,
+.ratio-button:active,
+.ratio-button.active {
+  background: black;
+  color: white;
+  outline: 0;
+}
+
+.ratio-button:not(:first-of-type) {
+  border-left: 1px;
+}

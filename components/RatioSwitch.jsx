@@ -1,6 +1,11 @@
 import React from 'react'
 
-const RATIOS = ['169', '43', '219', '21']
+const RATIOS = [
+  { id: '169', name: '16x9' },
+  { id: '43', name: '4x3' },
+  { id: '219', name: '21x9' },
+  { id: '21', name: '2x1' }
+]
 
 class RatioSwitch extends React.Component {
   constructor(props) {
@@ -13,30 +18,23 @@ class RatioSwitch extends React.Component {
   }
 
   render() {
+    const current = this.props.currentRatio
     return (
-      <div>
-        {RATIOS.map(r => (
-          <button
-            data-ratio={r}
-            key={r}
-            onClick={e => this.handleChange(e.target.dataset.ratio)}
-          >
-            {r}
-          </button>
-        ))}
-        <style jsx>
-          {`
-            div {
-              display: flex;
-            }
-
-            button {
-              padding: 24px;
-              border: 1px solid black;
-            }
-          `}
-        </style>
-      </div>
+      <React.Fragment>
+        {RATIOS.map(r => {
+          const cx = `ratio-button ${current === r.id ? 'active' : ''}`
+          return (
+            <button
+              className={cx}
+              data-ratio={r.id}
+              key={r.id}
+              onClick={e => this.handleChange(e.target.dataset.ratio)}
+            >
+              {r.name}
+            </button>
+          )
+        })}
+      </React.Fragment>
     )
   }
 }
