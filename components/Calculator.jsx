@@ -88,7 +88,7 @@ class Calculator extends React.Component {
         : value
 
     return (
-      <div className="container">
+      <div className="container grid">
         <BigInput
           value={width}
           label="Width"

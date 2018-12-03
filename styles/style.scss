@@ -19,8 +19,11 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .container {
-  display: grid;
   min-height: 100vh;
+}
+
+.grid {
+  display: grid;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
@@ -116,4 +119,29 @@ input[type='number']::-webkit-outer-spin-button {
   .ratio-button:not(:first-of-type) {
     border-left: 1px;
   }
+}
+
+.info-bar {
+  height: 144px;
+  padding: 48px 0;
+  text-align: center;
+  background: #f2f2f2;
+  grid-template-rows: 1fr;
+}
+
+.info-bar__item {
+  justify-self: center;
+  align-self: center;
+}
+
+.info-bar__item:nth-child(1) {
+  grid-column: 1;
+}
+
+.info-bar__item:nth-child(2) {
+  grid-column-end: -2;
+}
+
+.info-bar__item:last-child {
+  grid-column-end: -1;
 }
