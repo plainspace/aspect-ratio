@@ -2,8 +2,7 @@
   "name": "create-next-example-app",
   "scripts": {
     "dev": "next",
-    "build": "next build && next export -o dist",
-    "now-build": "yarn run build"
+    "build": "next build && next export -o dist"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
