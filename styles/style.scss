@@ -139,16 +139,27 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .info-bar {
-  height: 144px;
+  min-height: 144px;
   padding: 48px 0;
   text-align: center;
   background: #f2f2f2;
   grid-template-rows: 1fr;
+  text-align: left;
+  @media (max-width: 767px) {
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .info-bar__item {
   justify-self: center;
   align-self: center;
+
+  @media (max-width: 767px) {
+    margin-bottom: 12px;
+  }
 }
 
 .info-bar__item:nth-child(1) {
