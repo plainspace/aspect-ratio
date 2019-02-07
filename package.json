@@ -1,8 +1,9 @@
 {
-  "name": "create-next-example-app",
+  "name": "ratio",
   "scripts": {
     "dev": "next",
-    "build": "next build && next export -o dist"
+    "build": "next build && next export -o dist",
+    "now-build": "next build && next export -o dist"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
