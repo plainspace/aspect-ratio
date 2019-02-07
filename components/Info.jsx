@@ -1,6 +1,6 @@
 const Info = () => (
   <div className="info-bar grid">
-    <span className="info-bar__item">aspect</span>
+    <span className="info-bar__item">ratio.now.sh</span>
     <span className="info-bar__item">
       made by <a href="https://johnmeguerian.com">@jmegs</a>
     </span>

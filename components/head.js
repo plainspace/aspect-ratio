@@ -2,7 +2,7 @@ import React from 'react'
 import NextHead from 'next/head'
 import { string } from 'prop-types'
 
-const defaultTitle = 'Aspect'
+const defaultTitle = 'Ratio'
 const defaultDescription = 'A simple aspect ratio calculator.'
 const defaultOGURL = ''
 const defaultOGImage = '/static/og-image.png'
