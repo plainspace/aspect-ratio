@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Inter UI';
   font-weight: 900;
+  font-display: swap;
   src: url('/static/fonts/Inter-UI-Black.woff2') format('woff2'),
     url('/static/fonts/Inter-UI-Black.woff') format('woff');
 }
@@ -8,6 +9,7 @@
 @font-face {
   font-family: 'Inter UI';
   font-weight: 500;
+  font-display: swap;
   src: url('/static/fonts/Inter-UI-Medium.woff2') format('woff2'),
     url('/static/fonts/Inter-UI-Medium.woff') format('woff');
 }
